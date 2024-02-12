@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target-node: [14, 16, 18, 19, 20]
+        target-node: [14, 16, 18, 20]
 
     steps:
       - uses: actions/checkout@v4
@@ -29,12 +29,13 @@ jobs:
 
       - run: yarn start --node-range node${{ matrix.target-node }} --output dist
 
-      - name: Check if binary is compiled
+      - name: Check if binary is compiled, skip if download only
         id: check_file
         run: |
+          ls -l dist
           (test -f dist/*.sha256sum && echo "EXISTS=true" >> $GITHUB_OUTPUT) || echo "EXISTS=false" >> $GITHUB_OUTPUT
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: steps.check_file.outputs.EXISTS == 'true'
         with:
           name: node${{ matrix.target-node }}-macos-x64
@@ -46,7 +47,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target-node: [14, 16, 18, 19, 20]
+        target-node: [14, 16, 18, 20]
 
     steps:
       - uses: actions/checkout@v4
@@ -72,9 +73,10 @@ jobs:
       - name: Check if binary is compiled
         id: check_file
         run: |
+          ls -l dist
           (test -f dist/*.sha256sum && echo "EXISTS=true" >> $GITHUB_OUTPUT) || echo "EXISTS=false" >> $GITHUB_OUTPUT
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: steps.check_file.outputs.EXISTS == 'true'
         with:
           name: node${{ matrix.target-node }}-macos-arm64
