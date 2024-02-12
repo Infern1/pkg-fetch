@@ -15,10 +15,10 @@ jobs:
         target-arch: [x86]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Use Node.js 18
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
@@ -31,9 +31,14 @@ jobs:
       - name: Check if binary is compiled
         id: check_file
         run: |
-          if (Test-Path -Path dist\\*.sha256sum -PathType Leaf) { echo "::set-output name=EXISTS::true" } else { echo "::set-output name=EXISTS::false" }
+          ls dist
+          if (Test-Path -Path dist\\*.sha256sum -PathType Leaf) { 
+            "EXISTS=true" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          } else { 
+            "EXISTS=false" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          }
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         if: steps.check_file.outputs.EXISTS == 'true'
         with:
           name: node${{ matrix.target-node }}-windows-${{ matrix.target-arch }}
