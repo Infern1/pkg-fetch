@@ -1,17 +1,19 @@
-name: CI
+name: Test patch
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-
+  workflow_dispatch:
+    inputs:
+      args:
+        description: 'Command arguments'
+        default: '--node-range node18'
+        type: string
+        required: true
 jobs:
   test:
     strategy:
       fail-fast: false # prevent test to stop if one fails
       matrix:
-        node-version: [16, 18, 20, 22] # match patched node versions
+        node-version: [20] # match patched node versions
         os: [ubuntu-latest] # Skip macos-latest, windows-latest for now
 
     runs-on: ${{ matrix.os }}
@@ -35,4 +37,12 @@ jobs:
         run: yarn build
 
       - name: Check Patches
-        run: ./scripts/test_patch.sh node${{ matrix.node-version }}
+        run: |
+          mkdir -p output
+          yarn start --test --force-build --output ./output ${{ github.event.inputs.args }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./output/*
+

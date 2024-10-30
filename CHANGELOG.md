@@ -1,3 +1,118 @@
+## [3.5.16](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.15...v3.5.16) (2024-10-21)
+
+### Bug Fixes
+
+- wrong expected shas ([93bb9e9](https://github.com/yao-pkg/pkg-fetch/commit/93bb9e92832e54e1f0cc464afe9bace8f2398b7b))
+
+### Chores
+
+- fix update expected workflow ([181dd25](https://github.com/yao-pkg/pkg-fetch/commit/181dd259126d638f93bc43ea9153a48831530dc7))
+
+## [3.5.15](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.14...v3.5.15) (2024-10-20)
+
+### Features
+
+- node 22 and 20 patches and fix builds ([#55](https://github.com/yao-pkg/pkg-fetch/issues/55)) ([03f4da2](https://github.com/yao-pkg/pkg-fetch/commit/03f4da25c2919fca26788ee4818ee6206a48d05b))
+- patch for node 20.18.0 ([#51](https://github.com/yao-pkg/pkg-fetch/issues/51)) ([aabfc16](https://github.com/yao-pkg/pkg-fetch/commit/aabfc16f7ef3b17972d48c04e59b8f4fdd3e32b6))
+
+### Bug Fixes
+
+- update expected shas ([#56](https://github.com/yao-pkg/pkg-fetch/issues/56)) ([543aecc](https://github.com/yao-pkg/pkg-fetch/commit/543aecccb492b94f66a98cd562723cf88df7b29a))
+
+### Code refactoring
+
+- replace `chalk` and `fs-extra` ([#53](https://github.com/yao-pkg/pkg-fetch/issues/53)) ([253c0cc](https://github.com/yao-pkg/pkg-fetch/commit/253c0cc1edc5806d2e7ebacae955b8ea5d9461cd))
+
+### Chores
+
+- add missing premission to workflow ([8fc23c9](https://github.com/yao-pkg/pkg-fetch/commit/8fc23c907cd568d39c8473bd85dfb83a0b09fb81))
+- create issue when new patch is available ([9d28d72](https://github.com/yao-pkg/pkg-fetch/commit/9d28d72329078e3e11e47b9fab79668357898219))
+- create notifiation instead of creating an issue ([9b76b27](https://github.com/yao-pkg/pkg-fetch/commit/9b76b274a319b0e5534a858c9feb430ba9de9a0e))
+
+### Documentation
+
+- clarify small icu ([9bebb86](https://github.com/yao-pkg/pkg-fetch/commit/9bebb865a87d006eff50937e5572e32e551d4687))
+
+## [3.5.14](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.13...v3.5.14) (2024-10-01)
+
+### Bug Fixes
+
+- node 22 module filename resolution in win32 ([#49](https://github.com/yao-pkg/pkg-fetch/issues/49)) by [@faulpeltz](https://github.com/faulpeltz) ([e436d74](https://github.com/yao-pkg/pkg-fetch/commit/e436d74e4cdfdd8cd4004b672c9d0c3d0e78abc0))
+- skip sha check when providing `PKG_NODE_PATH` ([#50](https://github.com/yao-pkg/pkg-fetch/issues/50)) ([76bc9d0](https://github.com/yao-pkg/pkg-fetch/commit/76bc9d0bbf77d03d4505bad289b2b640b7e5f40f))
+
+### Chores
+
+- add release workflow ([d1b15b3](https://github.com/yao-pkg/pkg-fetch/commit/d1b15b3f0f6f1a90ccb4c08c8f9f75ecd675250d))
+
+## [3.5.13](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.12...v3.5.13) (2024-09-20)
+
+### Features
+
+- add v22.9.0 patch ([#47](https://github.com/yao-pkg/pkg-fetch/issues/47)) ([588dda6](https://github.com/yao-pkg/pkg-fetch/commit/588dda6744fc4416da753a235a502f58789c1570))
+
+### Bug Fixes
+
+- automatically trigger shas update workflow when building new patches ([721dac7](https://github.com/yao-pkg/pkg-fetch/commit/721dac7aba6199fc4aee2ebef162b91209916964))
+- update expected shas ([01f2951](https://github.com/yao-pkg/pkg-fetch/commit/01f295148440e13f733d8b576821c9bcfa34bc11))
+
+### Chores
+
+- add missing sed target ([7a53cce](https://github.com/yao-pkg/pkg-fetch/commit/7a53ccee9ead7fe44b8706e47134223f641e3efe))
+- change default `upload assets` to false ([cab8e80](https://github.com/yao-pkg/pkg-fetch/commit/cab8e805caf22daf0647331cea5a307e6b710371))
+- create update expected workflow ([0a5f961](https://github.com/yao-pkg/pkg-fetch/commit/0a5f9611a2ba22659f85251eae14a96585e9e441))
+- create workflow to automatically check new nodejs releases ([effe040](https://github.com/yao-pkg/pkg-fetch/commit/effe040902bbe51d555361c103893aba1173a194))
+- fix regex ([ce4d0f8](https://github.com/yao-pkg/pkg-fetch/commit/ce4d0f879795cbce095aef32124033145a77523b))
+- handle case where patch major doesn't exists ([fba9824](https://github.com/yao-pkg/pkg-fetch/commit/fba982472abffcdb99afafc5f5f05051ba377821))
+- restore `if` statement ([1a87466](https://github.com/yao-pkg/pkg-fetch/commit/1a87466d8ba574a83051024560a72f070f002dba))
+- restore working version ([385375d](https://github.com/yao-pkg/pkg-fetch/commit/385375d4873f7e0d0cb9f5f6826b2234bc713fc6))
+- test run ([7400fc9](https://github.com/yao-pkg/pkg-fetch/commit/7400fc9568ed37dc31407f01936010ac47291b4b))
+- try different approach ([267990e](https://github.com/yao-pkg/pkg-fetch/commit/267990e69b8c2da1c99143ff72b73501e7789ddf))
+
+## [3.5.12](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.11...v3.5.12) (2024-09-17)
+
+### Bug Fixes
+
+- switch to macos-14 runner and cleanup before build ([#46](https://github.com/yao-pkg/pkg-fetch/issues/46)) ([75d4ca0](https://github.com/yao-pkg/pkg-fetch/commit/75d4ca09c874b3c8785a966b8f5ba235c3c9fcd8))
+- update expected shas ([75e67b8](https://github.com/yao-pkg/pkg-fetch/commit/75e67b8214327dd0a24cf4c4bea8c93ddfd254b7))
+
+### Chores
+
+- add patch/minor release scripts to package.json ([9c57a56](https://github.com/yao-pkg/pkg-fetch/commit/9c57a567c55566d22b2aac281d0e51cda9000dfe))
+
+## [3.5.11](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.10...v3.5.11) (2024-09-10)
+
+### Features
+
+- add Node 22 patch ([#45](https://github.com/yao-pkg/pkg-fetch/issues/45)) (by [@faulpeltz](https://github.com/faulpeltz)) ([1703cd2](https://github.com/yao-pkg/pkg-fetch/commit/1703cd2f284455c4316a44496537915f532ebd29))
+
+### Bug Fixes
+
+- update expected shas ([bc5d8a5](https://github.com/yao-pkg/pkg-fetch/commit/bc5d8a545c4f8b09718754bd6f8cc5c9902b9e15))
+
+## [3.5.10](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.9...v3.5.10) (2024-09-06)
+
+### Features
+
+- add v18.20.2 patch ([#35](https://github.com/yao-pkg/pkg-fetch/issues/35)) ([36e3726](https://github.com/yao-pkg/pkg-fetch/commit/36e37262893aa1a698a150d0e6f235cec972f41e))
+- add v18.20.4 patch ([#43](https://github.com/yao-pkg/pkg-fetch/issues/43)) ([2a45bc5](https://github.com/yao-pkg/pkg-fetch/commit/2a45bc5b3db6bcf37bf136175008eebaa23bf781))
+- add v20.12.1 patch ([#32](https://github.com/yao-pkg/pkg-fetch/issues/32)) ([9cb16d3](https://github.com/yao-pkg/pkg-fetch/commit/9cb16d361670b5bd5dfff6db27a20b003095f996))
+- node 20.14.0 ([#37](https://github.com/yao-pkg/pkg-fetch/issues/37)) ([f35e749](https://github.com/yao-pkg/pkg-fetch/commit/f35e749bcaff95d1262d6303fdfba564f32383be))
+- node 20.17.0 ([#44](https://github.com/yao-pkg/pkg-fetch/issues/44)) ([480ebec](https://github.com/yao-pkg/pkg-fetch/commit/480ebec19a69dc1d30dff01a880b206f8a7b68ef))
+
+### Bug Fixes
+
+- macos nodejs 18 build ([81e4e1b](https://github.com/yao-pkg/pkg-fetch/commit/81e4e1b6d68df3ce08049871b0b4134f1e028c91))
+- nodejs 18 patch `sys/random.h` not included ([1defa22](https://github.com/yao-pkg/pkg-fetch/commit/1defa22a8b1f5b70fa78cb870a09a69337b78621))
+- revert v20.12.1 patch ([#32](https://github.com/yao-pkg/pkg-fetch/issues/32)) ([f673feb](https://github.com/yao-pkg/pkg-fetch/commit/f673feb48bff7c5b7e8fd733337e09cebb369e31))
+- update shas ([9d496d0](https://github.com/yao-pkg/pkg-fetch/commit/9d496d0eb888283ddc722244315d116e5af80f3d))
+- use macos-13/14 runner ([#40](https://github.com/yao-pkg/pkg-fetch/issues/40)) ([f79b7a3](https://github.com/yao-pkg/pkg-fetch/commit/f79b7a3585146d5228734bc405cf3d1a0b744a34))
+
+### Chores
+
+- add test patch workflow ([2e14897](https://github.com/yao-pkg/pkg-fetch/commit/2e148971aa9f0c951097646548c53f898e209bfb))
+- correct package name ([5caf157](https://github.com/yao-pkg/pkg-fetch/commit/5caf157a9ea33383da8df8af4818b23afd0a3f4a))
+- remove shas.txt from ignore ([94482c7](https://github.com/yao-pkg/pkg-fetch/commit/94482c7c3a8d90f540a5ed3e39afb6e138955c9b))
+
 ## [3.5.9](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.8...v3.5.9) (2024-02-16)
 
 ### Features

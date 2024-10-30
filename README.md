@@ -2,17 +2,19 @@ A utility to fetch or build patched Node binaries used by [pkg](https://github.c
 
 ## Binary Compatibility
 
-| Node                                                                              | Platform    | Architectures             | Minimum OS version                                                                |
-| --------------------------------------------------------------------------------- | ----------- | ------------------------- | --------------------------------------------------------------------------------- |
-| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14, 16, 18 | alpine      | x64, arm64                | 3.7.3, other distros with musl libc >= 1.1.18                                     |
-| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14, 16, 18 | linux       | x64                       | Enterprise Linux 7, Ubuntu 14.04, Debian jessie, other distros with glibc >= 2.17 |
-| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14, 16, 18 | linux       | arm64                     | Enterprise Linux 8, Ubuntu 18.04, Debian buster, other distros with glibc >= 2.27 |
-| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14, 16, 18 | linuxstatic | x64, arm64                | Any distro with Linux Kernel >= 2.6.32 (>= 3.10 strongly recommended)             |
-| 16, 18                                                                            | linuxstatic | armv7<sup>[2](#fn2)</sup> | Any distro with Linux Kernel >= 2.6.32 (>= 3.10 strongly recommended)             |
-| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14, 16, 18 | macos       | x64                       | 10.13                                                                             |
-| 14, 16, 18                                                                        | macos       | arm64<sup>[3](#fn3)</sup> | 11.0                                                                              |
-| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14, 16, 18 | win         | x64                       | 8.1                                                                               |
-| 14, 16, 18                                                                        | win         | arm64                     | 10                                                                                |
+| Node                                                                                                                              | Platform    | Architectures             | Minimum OS version                                                                  |
+| --------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------- | ----------------------------------------------------------------------------------- |
+| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14<sup>[1](#fn1)</sup>, 16<sup>[1](#fn1)</sup>, 18, 20, 22 | alpine      | x64, arm64                | 3.7.3, other distros with musl libc >= 1.1.18                                       |
+| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14<sup>[1](#fn1)</sup>, 16<sup>[1](#fn1)</sup>             | linux       | x64                       | Enterprise Linux 7, Ubuntu 14.04, Debian jessie, other distros with glibc >= 2.17   |
+| 18, 20, 22                                                                                                                        | linux       | x64                       | Enterprise Linux 8, Ubuntu 20.04, Debian buster, other distros with glibc >= 2.28   |
+| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14<sup>[1](#fn1)</sup>, 16<sup>[1](#fn1)</sup>             | linux       | arm64                     | Enterprise Linux 8, Ubuntu 18.04, Debian buster, other distros with glibc >= 2.27   |
+| 18, 20, 22                                                                                                                        | linux       | arm64                     | Enterprise Linux 9, Ubuntu 20.04, Debian bullseye, other distros with glibc >= 2.31 |
+| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14<sup>[1](#fn1)</sup>, 16<sup>[1](#fn1)</sup>, 18, 20, 22 | linuxstatic | x64, arm64                | Any distro with Linux Kernel >= 2.6.32 (>= 3.10 strongly recommended)               |
+| 16<sup>[1](#fn1)</sup>, 18, 20, 22                                                                                                | linuxstatic | armv7<sup>[2](#fn2)</sup> | Any distro with Linux Kernel >= 2.6.32 (>= 3.10 strongly recommended)               |
+| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14<sup>[1](#fn1)</sup>, 16<sup>[1](#fn1)</sup>, 18, 20, 22 | macos       | x64                       | 10.13                                                                               |
+| 14<sup>[1](#fn1)</sup>, 16<sup>[1](#fn1)</sup>, 18, 20, 22                                                                        | macos       | arm64<sup>[3](#fn3)</sup> | 11.0                                                                                |
+| 8<sup>[1](#fn1)</sup>, 10<sup>[1](#fn1)</sup>, 12<sup>[1](#fn1)</sup>, 14<sup>[1](#fn1)</sup>, 16<sup>[1](#fn1)</sup>, 18, 20, 22 | win         | x64                       | 8.1                                                                                 |
+| 14<sup>[1](#fn1)</sup>, 16<sup>[1](#fn1)</sup>, 18, 20, 22                                                                        | win         | arm64                     | 10                                                                                  |
 
 <em id="fn1">[1]</em>: end-of-life, may be removed in the next major release.
 
@@ -42,7 +44,7 @@ This project deploys multiple defense measures to ensure that the safe binaries 
 - GPG-signed hashes are available in [Releases](https://github.com/yao-pkg/pkg-fetch/releases)
   - Easy to spot a compromise.
 - `pkg-fetch` package on npm is strictly permission-controlled
-  - Only authorized Vercel employees can push new revisions to npm.
+  - Only @robertsLando can push new revisions to npm.
 
 ## Contributing Updates to Patches
 
@@ -111,6 +113,10 @@ review.
 For example:
 
 `yarn start --node-range node18 --arch x64 --output dist`
+
+## Small ICU
+
+Node.js binaries built by this project use the `small-icu` option to reduce the size of the binary. If you need a Node.js binary with full ICU support, you can build it yourself by setting the `--with-intl=full-icu` option. Small ICU is sufficient for most use cases, and it reduces the binary size by about 30 MB.
 
 ## Environment
 
