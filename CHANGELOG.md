@@ -1,3 +1,76 @@
+## [3.5.23](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.22...v3.5.23) (2025-05-17)
+
+### Bug Fixes
+
+- correct syntax in release tag determination logic ([4218a96](https://github.com/yao-pkg/pkg-fetch/commit/4218a96a6b459750bc00bd18a3c3d859a6e41357))
+- update missing SHAS ([7275f0d](https://github.com/yao-pkg/pkg-fetch/commit/7275f0d28b3ea8792f2d3df4fde522aef63c76ff))
+
+## [3.5.22](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.21...v3.5.22) (2025-05-15)
+
+### Features
+
+- add shas for node v20.19.1 and v22.15.1 ([b8ab3ba](https://github.com/yao-pkg/pkg-fetch/commit/b8ab3ba0b8855f222bae1c88d1cacffb5413553a))
+- node 20.19.1 patch ([#83](https://github.com/yao-pkg/pkg-fetch/issues/83)) ([14e4559](https://github.com/yao-pkg/pkg-fetch/commit/14e455940b32b0f41e3298547a9b8db46c960722))
+- node 22.15.1 patch ([#82](https://github.com/yao-pkg/pkg-fetch/issues/82)) ([377c55d](https://github.com/yao-pkg/pkg-fetch/commit/377c55d1f9e8a2633c18f9b1470cdb87751a462e))
+
+### Chores
+
+- correct `newRelease` on different fork ([#79](https://github.com/yao-pkg/pkg-fetch/issues/79)) ([daf2054](https://github.com/yao-pkg/pkg-fetch/commit/daf205407f8d572ba58eeb231e480bc9a2da5a49))
+
+## [3.5.21](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.20...v3.5.21) (2025-04-08)
+
+### Features
+
+- add v18.20.7 patch ([#74](https://github.com/yao-pkg/pkg-fetch/issues/74)) ([d165ece](https://github.com/yao-pkg/pkg-fetch/commit/d165ece55bcc2a1cea3e43c1a6ac701f36c21e79))
+- add v18.20.8 and v22.14.0 shas ([5a7b208](https://github.com/yao-pkg/pkg-fetch/commit/5a7b2089be03d74b79b6a59265d577b3eb38abcb))
+- add v18.20.8 patch ([#76](https://github.com/yao-pkg/pkg-fetch/issues/76)) ([e9701b4](https://github.com/yao-pkg/pkg-fetch/commit/e9701b48d57c20fc9ae92c0bcf70168f6bccf903))
+- node 22.14.0 patch ([#75](https://github.com/yao-pkg/pkg-fetch/issues/75)) ([2b27ec4](https://github.com/yao-pkg/pkg-fetch/commit/2b27ec40ec53b7ee9c078d875c89d9f78c237cf2))
+
+## [3.5.20](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.19...v3.5.20) (2025-02-13)
+
+## [3.5.19](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.18...v3.5.19) (2025-01-30)
+
+### Features
+
+- add v18.20.6 patch ([#68](https://github.com/yao-pkg/pkg-fetch/issues/68)) ([da3e27b](https://github.com/yao-pkg/pkg-fetch/commit/da3e27b0691de9955ce3c749cda6c1765f187094))
+- add v20.18.2 patch ([#67](https://github.com/yao-pkg/pkg-fetch/issues/67)) ([cc8271a](https://github.com/yao-pkg/pkg-fetch/commit/cc8271ad36aa8fe57de6c241c62bb1473aa0ceee))
+- add v22.13.1 patch ([#70](https://github.com/yao-pkg/pkg-fetch/issues/70)) ([85f955e](https://github.com/yao-pkg/pkg-fetch/commit/85f955eec37ba71ab74a6fcd9a91206ddd5080a1))
+- update shas for v18.20.6, v20.18.2 and v22.13.1 ([7ed32e2](https://github.com/yao-pkg/pkg-fetch/commit/7ed32e271d3ef3f0c938aff773aa50bad5b4f8d2))
+
+### Bug Fixes
+
+- arm64 WIN patch for 18.20.6 ([#72](https://github.com/yao-pkg/pkg-fetch/issues/72)) ([78459a6](https://github.com/yao-pkg/pkg-fetch/commit/78459a684e68def3c69031bf01de30032436a009))
+
+### Chores
+
+- fix check patch ([689e00d](https://github.com/yao-pkg/pkg-fetch/commit/689e00d6d812160c91e9853e449579eaa9e3e31c))
+
+## [3.5.18](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.17...v3.5.18) (2024-12-28)
+
+### Features
+
+- add `riscv64` and `loong64` to known archs ([#62](https://github.com/yao-pkg/pkg-fetch/issues/62)) ([361ac29](https://github.com/yao-pkg/pkg-fetch/commit/361ac29084daec85634c0cd04bda7d73c2869cfc))
+- add patches for Node v22.12.0 and v20.18.1 ([#63](https://github.com/yao-pkg/pkg-fetch/issues/63)) ([79afca1](https://github.com/yao-pkg/pkg-fetch/commit/79afca1c5cd16323c2b65460a0fcd081eb91fbb0))
+
+### Bug Fixes
+
+- update expected SHAs for Node versions ([#64](https://github.com/yao-pkg/pkg-fetch/issues/64)) ([4f223e1](https://github.com/yao-pkg/pkg-fetch/commit/4f223e10b88d3964d845d4027986ba8f2da66875))
+
+## [3.5.17](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.16...v3.5.17) (2024-11-04)
+
+### Features
+
+- add v22.11.0 patch ([#59](https://github.com/yao-pkg/pkg-fetch/issues/59)) ([76803c6](https://github.com/yao-pkg/pkg-fetch/commit/76803c60542e131c4ed7b3ea97d51bd25f6be798))
+
+### Bug Fixes
+
+- node 22 package json loader ([#57](https://github.com/yao-pkg/pkg-fetch/issues/57)) [@faulpeltz](https://github.com/faulpeltz) ([ea8746d](https://github.com/yao-pkg/pkg-fetch/commit/ea8746dd3b66daa06f4adf6f342df86d6535e746))
+- update expected shas ([02c538a](https://github.com/yao-pkg/pkg-fetch/commit/02c538afaf0a3c8e1c46803d616bc5e9bf1623fe))
+
+### Documentation
+
+- update list of built versions and glibc requirement ([#58](https://github.com/yao-pkg/pkg-fetch/issues/58)) ([54ead12](https://github.com/yao-pkg/pkg-fetch/commit/54ead12331e43c4e4007cd2eab1c434882e51b6f))
+
 ## [3.5.16](https://github.com/yao-pkg/pkg-fetch/compare/v3.5.15...v3.5.16) (2024-10-21)
 
 ### Bug Fixes
