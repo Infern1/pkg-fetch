@@ -1,4 +1,4 @@
-name: Build Node binaries for Windows
+name: Build Custom x86 Node binaries for Windows
 
 on:
   workflow_dispatch:
