@@ -1,8 +1,8 @@
 diff --git node/common.gypi node/common.gypi
-index 372409f4b0..5431580b6c 100644
+index b88371ec13..343352b5c4 100644
 --- node/common.gypi
 +++ node/common.gypi
-@@ -189,7 +189,7 @@
+@@ -191,7 +191,7 @@
              ['clang==1', {
                'lto': ' -flto ', # Clang
              }, {
@@ -92,10 +92,10 @@ index 2dd476dda3..8a51f25b57 100644
  
  RegisteredExtension::RegisteredExtension(std::unique_ptr<Extension> extension)
 diff --git node/deps/v8/src/codegen/compiler.cc node/deps/v8/src/codegen/compiler.cc
-index 49afab11b6..4c81f9f90b 100644
+index 9048655363..ab81c326fc 100644
 --- node/deps/v8/src/codegen/compiler.cc
 +++ node/deps/v8/src/codegen/compiler.cc
-@@ -3627,7 +3627,7 @@ MaybeHandle<SharedFunctionInfo> GetSharedFunctionInfoForScriptImpl(
+@@ -3634,7 +3634,7 @@ MaybeHandle<SharedFunctionInfo> GetSharedFunctionInfoForScriptImpl(
      maybe_script = lookup_result.script();
      maybe_result = lookup_result.toplevel_sfi();
      is_compiled_scope = lookup_result.is_compiled_scope();
@@ -247,10 +247,10 @@ index ec69ad5123..1894032344 100644
        GetHeaderValue(kReadOnlySnapshotChecksumOffset);
    if (ro_snapshot_checksum != expected_ro_snapshot_checksum) {
 diff --git node/lib/child_process.js node/lib/child_process.js
-index bb27670112..d175723c74 100644
+index e848b3d5ee..3e3ad3ec7c 100644
 --- node/lib/child_process.js
 +++ node/lib/child_process.js
-@@ -168,7 +168,7 @@ function fork(modulePath, args = [], options) {
+@@ -169,7 +169,7 @@ function fork(modulePath, args = [], options) {
      throw new ERR_CHILD_PROCESS_IPC_REQUIRED('options.stdio');
    }
  
@@ -315,7 +315,7 @@ index 0000000000..a697294fdf
 +  }());
 +}());
 diff --git node/lib/internal/modules/cjs/loader.js node/lib/internal/modules/cjs/loader.js
-index 33385fa792..61cb88dc0f 100644
+index d90476addb..8c87fa9019 100644
 --- node/lib/internal/modules/cjs/loader.js
 +++ node/lib/internal/modules/cjs/loader.js
 @@ -250,12 +250,16 @@ function stat(filename) {
@@ -337,7 +337,7 @@ index 33385fa792..61cb88dc0f 100644
      // Only set cache when `internalModuleStat(internalFsBinding, filename)` succeeds.
      statCache.set(filename, result);
 diff --git node/lib/internal/modules/package_json_reader.js node/lib/internal/modules/package_json_reader.js
-index 3c746fa0e7..c39ba93379 100644
+index df23a30b1b..4a414c469c 100644
 --- node/lib/internal/modules/package_json_reader.js
 +++ node/lib/internal/modules/package_json_reader.js
 @@ -105,17 +105,20 @@ const requiresJSONParse = (value) => (value !== undefined && (value[0] === '[' |
@@ -373,7 +373,7 @@ index 3c746fa0e7..c39ba93379 100644
      __proto__: null,
      ...result.data,
 diff --git node/lib/internal/process/pre_execution.js node/lib/internal/process/pre_execution.js
-index d1c05d1717..c6c806f73c 100644
+index 4e7be0594c..09efa7b745 100644
 --- node/lib/internal/process/pre_execution.js
 +++ node/lib/internal/process/pre_execution.js
 @@ -50,7 +50,11 @@ const {
@@ -388,7 +388,7 @@ index d1c05d1717..c6c806f73c 100644
    return prepareExecution({
      expandArgv1,
      initializeModules,
-@@ -241,7 +245,8 @@ function patchProcessObject(expandArgv1) {
+@@ -243,7 +247,8 @@ function patchProcessObject(expandArgv1) {
    let mainEntry;
    // If requested, update process.argv[1] to replace whatever the user provided with the resolved absolute file path of
    // the entry point.
@@ -398,7 +398,7 @@ index d1c05d1717..c6c806f73c 100644
      // Expand process.argv[1] into a full path.
      const path = require('path');
      try {
-@@ -726,6 +731,7 @@ function loadPreloadModules() {
+@@ -735,6 +740,7 @@ function loadPreloadModules() {
    // For user code, we preload modules if `-r` is passed
    const preloadModules = getOptionValue('--require');
    if (preloadModules && preloadModules.length > 0) {
@@ -429,10 +429,10 @@ index ae71080620..b05638de75 100644
        throw e; /* node-do-not-add-exception-line */
      }
 diff --git node/src/inspector_agent.cc node/src/inspector_agent.cc
-index 7c63c22112..830c8be5ca 100644
+index fa6eb29e6e..5d6dd23f6a 100644
 --- node/src/inspector_agent.cc
 +++ node/src/inspector_agent.cc
-@@ -796,11 +796,6 @@ bool Agent::Start(const std::string& path,
+@@ -819,11 +819,6 @@ bool Agent::Start(const std::string& path,
                                StartIoThreadAsyncCallback));
      uv_unref(reinterpret_cast<uv_handle_t*>(&start_io_thread_async));
      start_io_thread_async.data = this;
@@ -445,10 +445,10 @@ index 7c63c22112..830c8be5ca 100644
      parent_env_->AddCleanupHook([](void* data) {
        Environment* env = static_cast<Environment*>(data);
 diff --git node/src/node.cc node/src/node.cc
-index a0f1deadfc..b8e241a5b4 100644
+index c0d0b734ed..58583892f9 100644
 --- node/src/node.cc
 +++ node/src/node.cc
-@@ -398,6 +398,8 @@ MaybeLocal<Value> StartExecution(Environment* env, StartExecutionCallback cb) {
+@@ -404,6 +404,8 @@ MaybeLocal<Value> StartExecution(Environment* env, StartExecutionCallback cb) {
      return env->RunSnapshotDeserializeMain();
    }
  
@@ -457,7 +457,7 @@ index a0f1deadfc..b8e241a5b4 100644
    if (env->worker_context() != nullptr) {
      return StartExecution(env, "internal/main/worker_thread");
    }
-@@ -622,14 +624,6 @@ static void PlatformInit(ProcessInitializationFlags::Flags flags) {
+@@ -628,14 +630,6 @@ static void PlatformInit(ProcessInitializationFlags::Flags flags) {
    }
  
    if (!(flags & ProcessInitializationFlags::kNoDefaultSignalHandling)) {
@@ -473,7 +473,7 @@ index a0f1deadfc..b8e241a5b4 100644
    }
  
 diff --git node/src/node_contextify.cc node/src/node_contextify.cc
-index 187ba89290..dbed6342a9 100644
+index 7bfe42c593..836d98d6ed 100644
 --- node/src/node_contextify.cc
 +++ node/src/node_contextify.cc
 @@ -86,6 +86,7 @@ using v8::Symbol;
@@ -484,7 +484,7 @@ index 187ba89290..dbed6342a9 100644
  
  // The vm module executes code in a sandboxed environment with a different
  // global object than the rest of the code. This is achieved by applying
-@@ -996,13 +997,13 @@ void ContextifyScript::New(const FunctionCallbackInfo<Value>& args) {
+@@ -994,13 +995,13 @@ void ContextifyScript::New(const FunctionCallbackInfo<Value>& args) {
    Local<ArrayBufferView> cached_data_buf;
    bool produce_cached_data = false;
    Local<Context> parsing_context = context;
@@ -501,7 +501,7 @@ index 187ba89290..dbed6342a9 100644
      CHECK(args[2]->IsNumber());
      line_offset = args[2].As<Int32>()->Value();
      CHECK(args[3]->IsNumber());
-@@ -1023,6 +1024,10 @@ void ContextifyScript::New(const FunctionCallbackInfo<Value>& args) {
+@@ -1021,6 +1022,10 @@ void ContextifyScript::New(const FunctionCallbackInfo<Value>& args) {
      }
      CHECK(args[7]->IsSymbol());
      id_symbol = args[7].As<Symbol>();
@@ -512,7 +512,7 @@ index 187ba89290..dbed6342a9 100644
    }
  
    ContextifyScript* contextify_script =
-@@ -1070,6 +1075,10 @@ void ContextifyScript::New(const FunctionCallbackInfo<Value>& args) {
+@@ -1068,6 +1073,10 @@ void ContextifyScript::New(const FunctionCallbackInfo<Value>& args) {
    ShouldNotAbortOnUncaughtScope no_abort_scope(env);
    Context::Scope scope(parsing_context);
  
@@ -523,7 +523,7 @@ index 187ba89290..dbed6342a9 100644
    MaybeLocal<UnboundScript> maybe_v8_script =
        ScriptCompiler::CompileUnboundScript(isolate, &source, compile_options);
  
-@@ -1084,6 +1093,12 @@ void ContextifyScript::New(const FunctionCallbackInfo<Value>& args) {
+@@ -1082,6 +1091,12 @@ void ContextifyScript::New(const FunctionCallbackInfo<Value>& args) {
      return;
    }
  
@@ -536,7 +536,7 @@ index 187ba89290..dbed6342a9 100644
    contextify_script->script_.Reset(isolate, v8_script);
    contextify_script->script_.SetWeak();
    contextify_script->object()->SetInternalField(kUnboundScriptSlot, v8_script);
-@@ -1116,6 +1131,10 @@ void ContextifyScript::New(const FunctionCallbackInfo<Value>& args) {
+@@ -1121,6 +1136,10 @@ void ContextifyScript::New(const FunctionCallbackInfo<Value>& args) {
            .IsNothing())
      return;
  
@@ -658,10 +658,10 @@ index f66099a557..4048f6bd93 100644
 +  return adjacent(c, nargv);
 +}
 diff --git node/src/node_options.cc node/src/node_options.cc
-index 1444acd59d..f2eec6b35f 100644
+index da39abf79c..7f97afe7dc 100644
 --- node/src/node_options.cc
 +++ node/src/node_options.cc
-@@ -317,6 +317,7 @@ void Parse(
+@@ -319,6 +319,7 @@ void Parse(
  // TODO(addaleax): Make that unnecessary.
  
  DebugOptionsParser::DebugOptionsParser() {
