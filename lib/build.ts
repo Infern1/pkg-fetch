@@ -50,8 +50,11 @@ function getConfigureArgs(major: number, targetPlatform: string, targetArch: str
   }
 
   // Link Time Optimization
+  // Skipped on macOS: LTO makes the link phase enormously slow and pushes the
+  // build past GitHub Actions' 6h job limit (worst on the Intel x64 runner).
+  // See yao-pkg/pkg-fetch#170.
   if (major >= 12) {
-    if (hostPlatform !== 'win') {
+    if (hostPlatform !== 'win' && targetPlatform !== 'macos') {
       args.push('--enable-lto');
     }
   }
@@ -218,15 +221,6 @@ async function compileOnWindows(
   // TODO check with newer node/tooling/gh-image versions
   if (major >= 24) {
     args.push('full-icu');
-  }
-
-  // Can't cross compile for arm64 with small-icu
-  if (
-    major < 24 &&
-    hostArch !== targetArch &&
-    !config_flags.includes('--with-intl=full-icu')
-  ) {
-    config_flags.push('--without-intl');
   }
 
   await spawn('cmd', args, {
